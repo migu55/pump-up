@@ -19,7 +19,7 @@
                     "name": "Aim",
                     "type": "Value",
                     "id": "bfdc91d7-7c35-4287-a467-7d1aaa12e42f",
-                    "expectedControlType": "",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -46,6 +46,15 @@
                     "name": "Focus",
                     "type": "Button",
                     "id": "88b14f69-adf9-4d7c-b864-1e2985972d80",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Shoot",
+                    "type": "Button",
+                    "id": "729781e6-8587-4ef7-8001-4bf6455a4e99",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -111,7 +120,7 @@
                 {
                     "name": "",
                     "id": "b565b139-c0ec-44cc-8e0a-78057a23dd87",
-                    "path": "<Mouse>/delta",
+                    "path": "<Mouse>/position",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -149,6 +158,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Focus",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bcac9957-d5c8-4584-ab92-5738fbf372ea",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
