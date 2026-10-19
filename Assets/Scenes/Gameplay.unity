@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 205946463}
   - component: {fileID: 205946464}
   m_Layer: 0
-  m_Name: Weapon
+  m_Name: Pistol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -295,9 +295,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 205946461}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b8a1354c28ebea4bb024b5874832b2f, type: 3}
+  m_Script: {fileID: 11500000, guid: 5cc708d6c1ee2744d91475c5252afd3a, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
+  m_EditorClassIdentifier: Assembly-CSharp::PistolWeapon
+  texture: {fileID: 0}
   projectile: {fileID: -6737853620184185128, guid: db8e100ea7367e94ba943bae5d2e0d6d, type: 3}
 --- !u!1 &530306795
 GameObject:
@@ -902,7 +903,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CrosshairController
   normalCrosshair: {fileID: 2800000, guid: ac996e089da9c264faa99b06cc8e0438, type: 3}
   activeCrosshair: {fileID: 2800000, guid: 823a2f3829f684e4291c4fae9c633feb, type: 3}
-  absMousePos: {x: 0, y: 0, z: 0}
+  worldPos: {x: 0, y: 0, z: 0}
 --- !u!1 &1984166237
 GameObject:
   m_ObjectHideFlags: 0
