@@ -1,5 +1,25 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3618712578437343817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: PumpUp/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 639294689577329200
+  FileSizes:
+  - Name: Desktop
+    Value: 824
+  Exists: 1
 --- !u!114 &-1478885318775898651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24,6 +44,26 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &-949971991181180260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: PumpUp/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 639294689577288487
+  FileSizes:
+  - Name: Desktop
+    Value: 5066912
+  Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37,17 +77,17 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EventCache
   EditorBanks:
-  - {fileID: 2082675339436533448}
-  - {fileID: 6581563647141055598}
+  - {fileID: -3618712578437343817}
+  - {fileID: -949971991181180260}
   EditorEvents:
-  - {fileID: 4154867789629573153}
+  - {fileID: 3538775102822801954}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 6581563647141055598}
+  - {fileID: -949971991181180260}
   StringsBanks:
-  - {fileID: 2082675339436533448}
+  - {fileID: -3618712578437343817}
   cacheVersion: 131861
-  cacheTime: 639294074414070683
+  cacheTime: 639294689577329200
   SerializableEventsDict:
   - key: event:/Music/Nature
     index: 0
@@ -71,6 +111,34 @@ MonoBehaviour:
   - Name: Desktop
     Value: 824
   Exists: 1
+--- !u!114 &3538775102822801954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Nature
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Music/Nature
+  Guid:
+    Data1: -379290783
+    Data2: 1256422425
+    Data3: -1046619984
+    Data4: -1626236781
+  Banks:
+  - {fileID: -949971991181180260}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 6686049232468526718}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 129488
 --- !u!114 &4154867789629573153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,4 +186,28 @@ MonoBehaviour:
   FileSizes:
   - Name: Desktop
     Value: 5066912
+  Exists: 1
+--- !u!114 &6686049232468526718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Nature/RoomType
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
+  Name: RoomType
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 1
+  ID:
+    data1: 3470645672
+    data2: 2894195580
+  Type: 0
+  IsGlobal: 0
+  Labels: []
   Exists: 1

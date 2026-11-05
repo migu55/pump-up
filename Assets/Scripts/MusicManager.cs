@@ -20,8 +20,25 @@ public class MusicManager : MonoBehaviour
 
     private float roomType;
 
+    public static MusicManager Instance;
+
     private void Start()
     {
+
+        // If an instance already exists and it's not this one, destroy this duplicate
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        // Set the global instance to this script
+        Instance = this;
+
+        // Optional: Keep this object alive when switching scenes
+        DontDestroyOnLoad(gameObject);
+
+
         // Create the FMOD event instance
         musicInstance = RuntimeManager.CreateInstance(musicEvent);
 
