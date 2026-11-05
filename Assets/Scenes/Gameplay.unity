@@ -636,6 +636,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 903935390}
+  - component: {fileID: 903935391}
   m_Layer: 0
   m_Name: MusicManager
   m_TagString: Untagged
@@ -658,6 +659,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &903935391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 903935389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1d73e19f77fdf248b138731447a2928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  musicEvent:
+    Guid:
+      Data1: -379290783
+      Data2: 1256422425
+      Data3: -1046619984
+      Data4: -1626236781
+    Path: event:/Music/Nature
+  startingIntensity: 1
 --- !u!4 &1025345651 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8392000762805469191, guid: c9d2f40e55a503947b7ad841bf2a0148, type: 3}
