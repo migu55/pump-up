@@ -4,6 +4,10 @@ using UnityEngine;
 public abstract class Projectile : MonoBehaviour
 {
 
+    public float Lifetime = 0.0f;
+    public float MaxLifetime = 5.0f;
+    public float Damage;
+
     public Texture2D texture;
     public Vector2 velocity;
 
@@ -24,5 +28,12 @@ public abstract class Projectile : MonoBehaviour
     void FixedUpdate()
     {
         Travel();
+
+        Lifetime += Time.fixedDeltaTime;
+
+        if (Lifetime >= MaxLifetime)
+        {
+            Destroy(gameObject);
+        }
     }
 }
