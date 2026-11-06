@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Room : MonoBehaviour
@@ -14,11 +15,10 @@ public class Room : MonoBehaviour
 
     private int totalEnemies = 10;
     private int enemiesCleared = 0;
-    private List<Spawner> spawners;
+    private Spawner[] spawners;
     public bool isCleared;
     public bool isActive;
-    private Collider2D roomTrigger;
-    private List<Door> doors;
+    private Gate[] gates;
 
     [SerializeField]
     public RoomType roomType;
@@ -27,17 +27,27 @@ public class Room : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        roomTrigger = GetComponent<Collider2D>();
+        gates = transform.GetChild(1).transform.GetComponentsInChildren<Gate>()
+            .Where(gate => gate.AlwaysActive == false).ToArray();
+
+        spawners = transform.GetChild(2).transform.GetComponentsInChildren<Spawner>();
+
     }
 
     private void LockDoors()
     {
-
+        foreach (var gate in gates)
+        {
+            gate.gameObject.SetActive(true);
+        }
     }
 
     private void UnlockDoors()
     {
-
+        foreach (var gate in gates)
+        {
+            gate.gameObject.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

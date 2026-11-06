@@ -10,6 +10,10 @@ public abstract class Projectile : MonoBehaviour
 
     public bool IsPlayerOwned = false;
 
+    public bool CanPierce = false;
+    public int PiercingDepth = 0;
+    public int MaxPiercingDepth = 3;
+
     public Texture2D texture;
     public Vector2 velocity;
 
@@ -39,8 +43,12 @@ public abstract class Projectile : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.tag == "Wall" || collision.gameObject.tag == "Gate")
+        {
+            Destroy(gameObject);
+        }
 
         if (collision.gameObject.tag == "Player" && !IsPlayerOwned)
         {
@@ -51,9 +59,17 @@ public abstract class Projectile : MonoBehaviour
         if (collision.gameObject.tag == "Enemy" && IsPlayerOwned)
         {
             collision.gameObject.GetComponent<Enemy>().Health -= Damage;
+
+            if (CanPierce)
+            {
+                PiercingDepth++;
+                if (PiercingDepth >= MaxPiercingDepth)
+                {
+                    Destroy(gameObject);
+                }
+            }
+
             Destroy(gameObject);
         }
-
-        
     }
 }
