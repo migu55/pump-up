@@ -1,5 +1,57 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8122858023544969668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Lava/RoomType
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
+  Name: RoomType
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 1
+  ID:
+    data1: 3470645672
+    data2: 2894195580
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-7065070558608183773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Water
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Music/Water
+  Guid:
+    Data1: -2127015106
+    Data2: 1145317170
+    Data3: -1348563551
+    Data4: -458503179
+  Banks:
+  - {fileID: -949971991181180260}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 7532127953489612858}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 143999
 --- !u!114 &-3618712578437343817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,10 +67,10 @@ MonoBehaviour:
   Path: PumpUp/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639294962242669640
+  lastModified: 639295010168353475
   FileSizes:
   - Name: Desktop
-    Value: 824
+    Value: 906
   Exists: 1
 --- !u!114 &-1478885318775898651
 MonoBehaviour:
@@ -59,10 +111,10 @@ MonoBehaviour:
   Path: PumpUp/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639294962242649941
+  lastModified: 639295010168323509
   FileSizes:
   - Name: Desktop
-    Value: 5066912
+    Value: 17059808
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -81,16 +133,22 @@ MonoBehaviour:
   - {fileID: -949971991181180260}
   EditorEvents:
   - {fileID: 3538775102822801954}
+  - {fileID: 5968380824334575286}
+  - {fileID: -7065070558608183773}
   EditorParameters: []
   MasterBanks:
   - {fileID: -949971991181180260}
   StringsBanks:
   - {fileID: -3618712578437343817}
   cacheVersion: 131861
-  cacheTime: 639294962242669640
+  cacheTime: 639295010168353475
   SerializableEventsDict:
   - key: event:/Music/Nature
     index: 0
+  - key: event:/Music/Lava
+    index: 1
+  - key: event:/Music/Water
+    index: 2
 --- !u!114 &2082675339436533448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,6 +225,34 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 129488
+--- !u!114 &5968380824334575286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Lava
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Music/Lava
+  Guid:
+    Data1: 679187228
+    Data2: 1120142930
+    Data3: 1385666708
+    Data4: -1136382629
+  Banks:
+  - {fileID: -949971991181180260}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -8122858023544969668}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 160022
 --- !u!114 &6581563647141055598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,6 +284,30 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
   m_Name: parameter:/Nature/RoomType
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
+  Name: RoomType
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 1
+  ID:
+    data1: 3470645672
+    data2: 2894195580
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &7532127953489612858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Water/RoomType
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
   Name: RoomType
   StudioPath: 
