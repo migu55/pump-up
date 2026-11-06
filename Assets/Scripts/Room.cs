@@ -12,21 +12,22 @@ public class Room : MonoBehaviour
         Boss
     }
 
-    private int totalEnemies;
-    private int enemiesCleared;
+    private int totalEnemies = 10;
+    private int enemiesCleared = 0;
     private List<Spawner> spawners;
     public bool isCleared;
     public bool isActive;
     private Collider2D roomTrigger;
     private List<Door> doors;
-    private RoomType roomType;
+
+    [SerializeField]
+    public RoomType roomType;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         roomTrigger = GetComponent<Collider2D>();
-        Debug.Log("Room Trigger: " + roomTrigger);
     }
 
     private void LockDoors()
@@ -41,8 +42,6 @@ public class Room : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        Debug.Log("Trigger Active");
 
         if (!isCleared)
         {
@@ -64,7 +63,15 @@ public class Room : MonoBehaviour
                 }
             }
         }
+    }
 
+    //emergency
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            MusicManager.Instance.SetRoomType(1.0f);
+        }
     }
 
 
@@ -78,7 +85,7 @@ public class Room : MonoBehaviour
             {
                 isCleared = true;
                 UnlockDoors();
-
+                isActive = false;
                 MusicManager.Instance.SetRoomType(1.0f);
             }
 

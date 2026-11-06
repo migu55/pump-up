@@ -11,6 +11,8 @@ public abstract class Weapon : MonoBehaviour
     PlayerInput playerInput;
     InputAction fireAction;
 
+    public float ProjectileSpeed = 30.0f;
+
     [SerializeField]
     private Projectile projectile;
     private CrosshairController crosshairController;
@@ -42,14 +44,15 @@ public abstract class Weapon : MonoBehaviour
         rotation.x = 0;
         rotation.y = 0;
 
-        Instantiate(projectile, gameObject.transform.position, rotation);
+        Projectile proj = Instantiate(projectile, gameObject.transform.position, rotation);
+        proj.IsPlayerOwned = true;
 
         Vector3 direction = dest - gameObject.transform.position;
         //Debug.Log("Src:" + gameObject.transform.position);
         //Debug.Log("Dest:" + dest);
         //Debug.Log("Dir:" + direction);
         Vector2 nDireciton = direction.normalized;
-        projectile.velocity = nDireciton * 15.0f; //handle projectile speed later
+        projectile.velocity = nDireciton * ProjectileSpeed; //handle projectile speed later
     }
 
     private void RotateToCrosshair()

@@ -9,6 +9,8 @@ public abstract class Enemy : MonoBehaviour
     public float ExperienceDropsMean;
     public float MoneyDropsMean;
 
+    public bool FollowsPlayer;
+
     public bool IsRanged;
     public bool RangedFollowDistance;
 
@@ -25,17 +27,18 @@ public abstract class Enemy : MonoBehaviour
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
+        navMeshAgent.speed = Speed;
     }
 
     // Update is called once per frame
     void Update()
     {
+        Move();
+
         if (Health <= 0)
         {
 
-            //calculate drops randomly based on mean values
-
-
+            //TODO: calculate drops randomly based on mean values
             Destroy(gameObject);
         }
     }
@@ -43,6 +46,13 @@ public abstract class Enemy : MonoBehaviour
     public virtual void Move()
     {
         // Implement movement logic here
+
+        if (!IsRanged)
+        {
+            navMeshAgent.destination = GameObject.FindWithTag("Player").transform.position;
+        }
+
+       
     }
 
     public virtual void checkAttackConditions()

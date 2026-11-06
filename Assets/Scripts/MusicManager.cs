@@ -22,7 +22,7 @@ public class MusicManager : MonoBehaviour
 
     public static MusicManager Instance;
 
-    private void Start()
+    private void Awake()
     {
 
         // If an instance already exists and it's not this one, destroy this duplicate
@@ -55,17 +55,9 @@ public class MusicManager : MonoBehaviour
     {
         // Keep the value within the parameter range
         targetRoomType = Mathf.Clamp(newRoomType, 0f, 2f);
+
+        Debug.Log($"RoomType target set to: {targetRoomType}");
     }
-
-    //    // Avoid unnecessary parameter updates
-    //    if (Mathf.Approximately(newRoomType, roomType))
-    //        return;
-
-    //    roomType = newRoomType;
-
-    //    // Update the FMOD parameter
-    //    musicInstance.setParameterByName("RoomType", roomType);
-    //}
 
     public void StopMusic()
     {
@@ -79,10 +71,10 @@ public class MusicManager : MonoBehaviour
     //debugging
     private void Update()
     {
-        if (Application.isPlaying)
-        {
-            SetRoomType(startingRoomType);
-        }
+        //if (Application.isPlaying)
+        //{
+        //    SetRoomType(startingRoomType);
+        //}
 
         roomType = Mathf.MoveTowards(
         roomType,

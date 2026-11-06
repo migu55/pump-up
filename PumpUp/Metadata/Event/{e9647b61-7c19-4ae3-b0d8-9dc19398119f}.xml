@@ -135,7 +135,10 @@
 	</object>
 	<object class="SingleSound" id="{fe7de828-a637-4357-9a5d-6a82024f4624}">
 		<property name="length">
-			<value>129.48897959183674</value>
+			<value>129.45897959183674</value>
+		</property>
+		<property name="timelockedOffset">
+			<value>0.029999999999999999</value>
 		</property>
 		<relationship name="audioFile">
 			<destination>{52d86b61-9843-4ba0-9c1a-04e50cc8c65c}</destination>
@@ -165,7 +168,10 @@
 	</object>
 	<object class="SingleSound" id="{13020f3e-b3dc-4102-96c2-3fae85d974b0}">
 		<property name="length">
-			<value>129.48897959183674</value>
+			<value>129.45897959183674</value>
+		</property>
+		<property name="timelockedOffset">
+			<value>0.029999999999999999</value>
 		</property>
 		<relationship name="audioFile">
 			<destination>{9be699fa-d8f5-470c-8e0f-1c0f2307b224}</destination>
@@ -195,7 +201,10 @@
 	</object>
 	<object class="SingleSound" id="{539bdd0e-1365-43b6-bf88-9b31a0ed7def}">
 		<property name="length">
-			<value>129.48897959183674</value>
+			<value>129.45897959183674</value>
+		</property>
+		<property name="timelockedOffset">
+			<value>0.029999999999999999</value>
 		</property>
 		<relationship name="audioFile">
 			<destination>{638be970-1b42-4ec8-94a1-8788bce62c1f}</destination>
@@ -223,7 +232,7 @@
 			<value>0</value>
 		</property>
 		<property name="length">
-			<value>129.48897959183674</value>
+			<value>129.45897959183674</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{845f6243-7a8c-4db6-9f84-71531e18a270}</destination>
