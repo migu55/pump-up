@@ -27,10 +27,17 @@ public class Room : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        gates = transform.GetChild(1).transform.GetComponentsInChildren<Gate>()
-            .Where(gate => gate.AlwaysActive == false).ToArray();
 
-        spawners = transform.GetChild(2).transform.GetComponentsInChildren<Spawner>();
+        if (roomType == RoomType.Shop || roomType == RoomType.Combat)
+        {
+            gates = transform.GetChild(1).transform.GetComponentsInChildren<Gate>()
+           .Where(gate => gate.AlwaysActive == false).ToArray();
+        }
+
+        if (roomType == RoomType.Combat)
+        {
+            spawners = transform.GetChild(2).transform.GetComponentsInChildren<Spawner>();
+        }
 
     }
 
