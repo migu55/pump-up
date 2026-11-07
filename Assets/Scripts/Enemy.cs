@@ -64,7 +64,13 @@ public abstract class Enemy : MonoBehaviour
             {
                 SpawnLoot(false);
             }
-            //TODO: calculate drops randomly based on mean values
+
+            Room roomRef = GameManager.Instance.CurrentRoomReference;
+            if (roomRef != null)
+            {
+                roomRef.enemiesCleared++;
+            }
+
             Destroy(gameObject);
         }
     }

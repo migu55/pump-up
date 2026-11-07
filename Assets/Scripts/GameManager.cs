@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
     public float MaxEnergy = 100.0f;
     public int Money = 0;
 
+    public Room CurrentRoomReference = null;
+
     // The public static property that other scripts access
     public static GameManager Instance { get; private set; }
 

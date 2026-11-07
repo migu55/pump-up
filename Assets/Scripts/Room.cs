@@ -13,12 +13,14 @@ public class Room : MonoBehaviour
         Boss
     }
 
-    private int totalEnemies = 10;
-    private int enemiesCleared = 0;
-    private Spawner[] spawners;
+    public int totalEnemies = 10;
+    public int enemiesSpawned = 0;
+    public int enemiesCleared = 0;
+
     public bool isCleared;
     public bool isActive;
     private Gate[] gates;
+    private Spawner[] spawners;
 
     [SerializeField]
     public RoomType roomType;
@@ -27,6 +29,11 @@ public class Room : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
+        if (roomType == RoomType.Shop || roomType == RoomType.Spawn)
+        {
+            isCleared = true;
+        }
 
         if (roomType == RoomType.Shop || roomType == RoomType.Combat)
         {
@@ -38,7 +45,6 @@ public class Room : MonoBehaviour
         {
             spawners = transform.GetChild(2).transform.GetComponentsInChildren<Spawner>();
         }
-
     }
 
     private void LockDoors()
@@ -57,6 +63,22 @@ public class Room : MonoBehaviour
         }
     }
 
+    private void ActivateSpawners()
+    {
+        foreach (var spwn in spawners)
+        {
+            spwn.spawnerActive = true;
+        }
+    }
+
+    private void DeactivateSpawners()
+    {
+        foreach (var gate in gates)
+        {
+            spwn.spawnerActive = false;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
@@ -69,6 +91,7 @@ public class Room : MonoBehaviour
 
                 isActive = true;
                 LockDoors();
+                ActivateSpawners();
 
                 if (roomType == RoomType.Shop)
                 {
@@ -80,6 +103,8 @@ public class Room : MonoBehaviour
                 }
             }
         }
+
+        GameManager.Instance.CurrentRoomReference = this;
     }
 
     //emergency
@@ -89,26 +114,35 @@ public class Room : MonoBehaviour
         {
             MusicManager.Instance.SetRoomType(1.0f);
         }
+
+        GameManager.Instance.CurrentRoomReference = null;
+    }
+
+    public bool SpawnEnemyCheck()
+    {
+        if (enemiesSpawned <= totalEnemies)
+        {
+            enemiesSpawned++;
+            return true;
+        }
+        
+        return false;
     }
 
 
     // Update is called once per frame
     void Update()
     {
-
         if (isActive)
         {
             if (enemiesCleared >= totalEnemies)
             {
                 isCleared = true;
                 UnlockDoors();
+                DeactivateSpawners();
                 isActive = false;
                 MusicManager.Instance.SetRoomType(1.0f);
             }
-
-            //spawning enemy logic
-
-
         }
     }
 }
