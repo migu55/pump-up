@@ -37,14 +37,22 @@ public class Room : MonoBehaviour
 
         if (roomType == RoomType.Shop || roomType == RoomType.Combat)
         {
-            gates = transform.GetChild(1).transform.GetComponentsInChildren<Gate>()
+            gates = transform.GetChild(1).transform.GetComponentsInChildren<Gate>(true)
            .Where(gate => gate.AlwaysActive == false).ToArray();
         }
 
         if (roomType == RoomType.Combat)
         {
-            spawners = transform.GetChild(2).transform.GetComponentsInChildren<Spawner>();
+            spawners = transform.GetChild(3).transform.GetComponentsInChildren<Spawner>(true);
+            Debug.Log(spawners.Length);
         }
+
+        if (roomType == RoomType.Shop)
+        {
+            transform.GetChild(4).gameObject.SetActive(true);
+        }
+
+        
     }
 
     private void LockDoors()
@@ -81,8 +89,12 @@ public class Room : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (roomType == RoomType.Shop)
+        {
+            MusicManager.Instance.SetRoomType(0.0f);
+        }
 
-        if (!isCleared)
+        if (roomType == RoomType.Combat && !isCleared)
         {
             if (collision.CompareTag("Player"))
             {
@@ -92,19 +104,15 @@ public class Room : MonoBehaviour
                 isActive = true;
                 LockDoors();
                 ActivateSpawners();
+                MusicManager.Instance.SetRoomType(2.0f);
 
-                if (roomType == RoomType.Shop)
-                {
-                    MusicManager.Instance.SetRoomType(0.0f);
-                }
-                else if (roomType == RoomType.Combat)
-                {
-                    MusicManager.Instance.SetRoomType(2.0f);
-                }
             }
         }
 
-        GameManager.Instance.CurrentRoomReference = this;
+        if (collision.CompareTag("Player"))
+        {
+            GameManager.Instance.CurrentRoomReference = this;
+        }
     }
 
     //emergency
@@ -113,9 +121,9 @@ public class Room : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             MusicManager.Instance.SetRoomType(1.0f);
+            GameManager.Instance.CurrentRoomReference = null;
         }
-
-        GameManager.Instance.CurrentRoomReference = null;
+  
     }
 
     public bool SpawnEnemyCheck()
@@ -135,6 +143,8 @@ public class Room : MonoBehaviour
     {
         if (isActive)
         {
+            Debug.Log("C:" + enemiesCleared + " T:" + totalEnemies);
+
             if (enemiesCleared >= totalEnemies)
             {
                 isCleared = true;

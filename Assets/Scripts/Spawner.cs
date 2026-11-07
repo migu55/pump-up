@@ -24,7 +24,7 @@ public class Spawner : MonoBehaviour
         {
             if (spawnerReady)
             {
-                if (GameManager.Instance.CurrentRoomReference.SpawnEnemyCheck())
+                if (GameManager.Instance.CurrentRoomReference != null && GameManager.Instance.CurrentRoomReference.SpawnEnemyCheck())
                 {
                     SpawnEnemy();
                     spawnTimer = 0.0f;
@@ -44,6 +44,8 @@ public class Spawner : MonoBehaviour
 
     public void SpawnEnemy()
     {
+        Debug.Log("Spawner > Spawn Enemy");
+
         int randomIndex = UnityEngine.Random.Range(0, enemyPrefabs.Count);
         GameObject enemyPrefab = enemyPrefabs[randomIndex];
 

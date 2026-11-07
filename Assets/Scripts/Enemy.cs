@@ -66,6 +66,7 @@ public abstract class Enemy : MonoBehaviour
             }
 
             Room roomRef = GameManager.Instance.CurrentRoomReference;
+            Debug.Log(roomRef == null);
             if (roomRef != null)
             {
                 roomRef.enemiesCleared++;
