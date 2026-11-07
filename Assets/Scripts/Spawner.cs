@@ -1,10 +1,13 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    public List<GameObject> enemyPrefabs = new List<GameObject>();
 
-    public bool canSpawn = true;
+    public bool spawnerActive = false;
+    public bool spawnerReady = true;
     public float spawnCooldown = 1.0f;
     public float spawnTimer = 0.0f;
 
@@ -17,26 +20,38 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!canSpawn)
+        if (spawnerActive)
         {
-            spawnTimer = Math.Clamp(spawnTimer + Time.deltaTime, 0.0f, spawnCooldown);
-
-            if (spawnTimer >= spawnCooldown)
+            if (spawnerReady)
             {
-                canSpawn = true;
-            }
+                if (GameManager.Instance.CurrentRoomReference.SpawnEnemyCheck())
+                {
+                    SpawnEnemy();
+                    spawnTimer = 0.0f;
+                    spawnerReady = false;
+                }
+            } else
+            {
+                spawnTimer = Math.Clamp(spawnTimer + Time.deltaTime, 0.0f, spawnCooldown);
 
+                if (spawnTimer >= spawnCooldown)
+                {
+                    spawnerReady = true;
+                }
+            }
         }
     }
 
-    public bool SpawnEnemy(GameObject enemyPrefab)
+    public void SpawnEnemy()
     {
-        if (!canSpawn) return false;
+        int randomIndex = UnityEngine.Random.Range(0, enemyPrefabs.Count);
+        GameObject enemyPrefab = enemyPrefabs[randomIndex];
 
-        Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+        if (enemyPrefab != null)
+        {
+            Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+        }
+       
 
-        canSpawn = false;
-        spawnTimer = 0.0f;
-        return true;
     }
 }
