@@ -110,13 +110,18 @@ MonoBehaviour:
   Health: 100
   Speed: 5
   AttackCooldown: 1
-  ExperienceDropsMean: 0
-  MoneyDropsMean: 0
+  ExperienceDropsMean: 3
+  MoneyDropsMean: 3
+  DropRange: 1
+  SpawnRadius: 2
   FollowsPlayer: 1
   IsRanged: 0
   RangedFollowDistance: 0
-  ExperienceOrb: {fileID: 0}
-  Coin: {fileID: 0}
+  ExperienceOrbPrefab: {fileID: 5064632243695513321, guid: 5a0c44852a12fe64bb949deb28f185c1, type: 3}
+  CoinPrefab: {fileID: 7287513803212418592, guid: f14a3a336135d094e97c7b61c12e2d20, type: 3}
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!61 &3744632728080646936
 BoxCollider2D:
   m_ObjectHideFlags: 0
