@@ -44,7 +44,6 @@ public class Room : MonoBehaviour
         if (roomType == RoomType.Combat)
         {
             spawners = transform.GetChild(3).transform.GetComponentsInChildren<Spawner>(true);
-            Debug.Log(spawners.Length);
         }
 
         if (roomType == RoomType.Shop)
@@ -89,16 +88,19 @@ public class Room : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (roomType == RoomType.Shop)
-        {
-            MusicManager.Instance.SetRoomType(0.0f);
-        }
+        
 
-        if (roomType == RoomType.Combat && !isCleared)
+        if (collision.CompareTag("Player"))
         {
-            if (collision.CompareTag("Player"))
+            GameManager.Instance.CurrentRoomReference = this;
+
+            if (roomType == RoomType.Shop)
             {
+                MusicManager.Instance.SetRoomType(0.0f);
+            }
 
+            if (roomType == RoomType.Combat && !isCleared)
+            {
                 Debug.Log("Activating Room");
 
                 isActive = true;
@@ -107,11 +109,6 @@ public class Room : MonoBehaviour
                 MusicManager.Instance.SetRoomType(2.0f);
 
             }
-        }
-
-        if (collision.CompareTag("Player"))
-        {
-            GameManager.Instance.CurrentRoomReference = this;
         }
     }
 
@@ -128,7 +125,7 @@ public class Room : MonoBehaviour
 
     public bool SpawnEnemyCheck()
     {
-        if (enemiesSpawned <= totalEnemies)
+        if (enemiesSpawned < totalEnemies)
         {
             enemiesSpawned++;
             return true;
@@ -143,7 +140,6 @@ public class Room : MonoBehaviour
     {
         if (isActive)
         {
-            Debug.Log("C:" + enemiesCleared + " T:" + totalEnemies);
 
             if (enemiesCleared >= totalEnemies)
             {

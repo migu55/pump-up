@@ -8,11 +8,11 @@ public abstract class Enemy : MonoBehaviour
     public float Health;
     public float Speed;
     public float AttackCooldown = 1.0f;
-    public float ExperienceDropsMean = 3;
-    public float MoneyDropsMean = 3;
-    public float DropRange = 1;
+    public int ExperienceDropsMean = 3;
+    public int MoneyDropsMean = 3;
+    public float DropRange = 1.0f;
 
-    public float SpawnRadius = 2.0f;
+    public float DropsSpawnRadius = 2.0f;
 
     public bool FollowsPlayer;
 
@@ -74,8 +74,6 @@ public abstract class Enemy : MonoBehaviour
             int energyToSpawn = (int)Random.Range(ExperienceDropsMean - DropRange, ExperienceDropsMean + DropRange);
             int moneyToSpawn = (int)Random.Range(MoneyDropsMean - DropRange, MoneyDropsMean + DropRange);
 
-            Debug.Log(energyToSpawn + ", " + moneyToSpawn);
-
             for (int i = 0; i < energyToSpawn; i++)
             {
                 SpawnLoot(true);
@@ -87,7 +85,6 @@ public abstract class Enemy : MonoBehaviour
             }
 
             Room roomRef = GameManager.Instance.CurrentRoomReference;
-            Debug.Log(roomRef == null);
             if (roomRef != null)
             {
                 roomRef.enemiesCleared++;
@@ -103,7 +100,7 @@ public abstract class Enemy : MonoBehaviour
 
         // 1. Get a completely random direction in 2D space
         Vector2 randomDirection = Random.insideUnitCircle.normalized;
-        float randomDistance = Random.Range(0.5f, SpawnRadius);
+        float randomDistance = Random.Range(0.5f, DropsSpawnRadius);
 
         Vector2 targetPosition = (Vector2)transform.position + (randomDirection * randomDistance);
 
@@ -135,8 +132,6 @@ public abstract class Enemy : MonoBehaviour
 
 
         }
-
-       
     }
 
     public virtual void checkAttackConditions()
@@ -151,10 +146,6 @@ public abstract class Enemy : MonoBehaviour
                 Attack();
             }
         }
-
-
-
-        
     }
     private IEnumerator AttackCoroutine()
     {
@@ -242,7 +233,6 @@ public abstract class Enemy : MonoBehaviour
 
     public virtual void Attack()
     {
-        Debug.Log("Attacking");
         StartCoroutine(AttackCoroutine());
     }
 }

@@ -67,7 +67,7 @@ MonoBehaviour:
   Path: PumpUp/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639295547313815656
+  lastModified: 639295010168353475
   FileSizes:
   - Name: Desktop
     Value: 906
@@ -111,7 +111,7 @@ MonoBehaviour:
   Path: PumpUp/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639295547313780500
+  lastModified: 639295010168323509
   FileSizes:
   - Name: Desktop
     Value: 17059808
@@ -141,7 +141,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -3618712578437343817}
   cacheVersion: 131861
-  cacheTime: 639295547313815656
+  cacheTime: 639295010168353475
   SerializableEventsDict:
   - key: event:/Music/Nature
     index: 0

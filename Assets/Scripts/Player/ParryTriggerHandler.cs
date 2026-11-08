@@ -71,8 +71,6 @@ public class ParryTriggerHandler : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
 
-        Debug.Log("IMPLEMENT LATER = Parry Triggered with: " + collision.gameObject.name);
-
         if (collision.gameObject.tag == "Projectile" && !collision.gameObject.GetComponent<Projectile>().IsPlayerOwned)
         {
 
@@ -89,7 +87,7 @@ public class ParryTriggerHandler : MonoBehaviour
             //allows multi parrying
             somethingParried = true;
 
-            GameManager.Instance.Energy += 2.0f;
+            GameManager.Instance.Energy += 3.0f;
         }
 
         if (collision.gameObject.TryGetComponent<MeleeTriggerHandler>(out MeleeTriggerHandler mt))
