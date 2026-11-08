@@ -88,10 +88,25 @@ public class ParryTriggerHandler : MonoBehaviour
 
             //allows multi parrying
             somethingParried = true;
+
+            GameManager.Instance.Energy += 2.0f;
         }
 
-       
-        // Reverse direction of enemy attack and swap tag to friendly projectile
+        if (collision.gameObject.TryGetComponent<MeleeTriggerHandler>(out MeleeTriggerHandler mt))
+        {
+
+            //DO YOUR FUNNY TIME STOP HERE
+
+            Enemy enemy = mt.GetComponentInParent<Enemy>();
+            mt.gameObject.SetActive(false);
+            enemy.CanMove = false;
+            enemy.Health -= mt.Damage * 1.5f;
+
+            somethingParried = true;
+
+            GameManager.Instance.Energy += 3.0f;
+
+        }
     }
 
     private void Update()

@@ -378,7 +378,7 @@ MonoBehaviour:
   - {fileID: 6446248501923651348, guid: f57ed1bcfbd6dfd4caa8936c86845154, type: 3}
   spawnerActive: 0
   spawnerReady: 1
-  spawnCooldown: 1
+  spawnCooldown: 2
   spawnTimer: 0
 --- !u!1 &1734967339266298252
 GameObject:
@@ -704,7 +704,7 @@ MonoBehaviour:
   - {fileID: 6446248501923651348, guid: f57ed1bcfbd6dfd4caa8936c86845154, type: 3}
   spawnerActive: 0
   spawnerReady: 1
-  spawnCooldown: 1
+  spawnCooldown: 2
   spawnTimer: 0
 --- !u!1 &2047050683797923810
 GameObject:
@@ -1140,7 +1140,7 @@ MonoBehaviour:
   - {fileID: 6446248501923651348, guid: f57ed1bcfbd6dfd4caa8936c86845154, type: 3}
   spawnerActive: 0
   spawnerReady: 1
-  spawnCooldown: 1
+  spawnCooldown: 2
   spawnTimer: 0
 --- !u!1 &3441281912426979072
 GameObject:
@@ -1835,7 +1835,7 @@ MonoBehaviour:
   - {fileID: 6446248501923651348, guid: f57ed1bcfbd6dfd4caa8936c86845154, type: 3}
   spawnerActive: 0
   spawnerReady: 1
-  spawnCooldown: 1
+  spawnCooldown: 2
   spawnTimer: 0
 --- !u!1 &5890514163310876750
 GameObject:
